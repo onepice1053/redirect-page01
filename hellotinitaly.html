@@ -1,8 +1,22 @@
-<script>
-  const part = window.location.hash.substring(1);
-  if (part) {
-    window.location.href = "http://fcarsenal.store/" + part;
-  } else {
-    window.location.href = "http://fcarsenal.store";
-  }
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirecting...</title>
+  <meta http-equiv="refresh" content="0;url=http://fcarsenal.store/"> <!-- Fallback for no-JS -->
+</head>
+<body>
+  <p>Redirecting to <a href="http://fcarsenal.store/">fcarsenal.store</a>...</p>
+  <script>
+    (function() {
+      try {
+        const part = window.location.hash.substring(1);
+        const target = part ? "http://fcarsenal.store/" + encodeURIComponent(part) : "http://fcarsenal.store";
+        window.location.replace(target); // Safer than .href
+      } catch (e) {
+        console.error("Redirect failed:", e);
+        window.location.href = "http://fcarsenal.store"; // Fallback
+      }
+    })();
+  </script>
+</body>
+</html>
